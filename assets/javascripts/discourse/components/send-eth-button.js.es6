@@ -16,10 +16,12 @@ export default Ember.Component.extend({
   actions: {
     showSendEthModal() {
       if (this.get("disabled")) return;
-      showModal("send-eth", { model: this.get("model") });
+      window.withWeb3().then( ()=> {
+        showModal("send-eth", {model: this.get("model")});
 
-      // if (this.get("close")) this.sendAction("close");
-      if (this.get("close")) this.close();
+        // if (this.get("close")) this.sendAction("close");
+        if (this.get("close")) this.close();
+      });
     }
   }
 });
