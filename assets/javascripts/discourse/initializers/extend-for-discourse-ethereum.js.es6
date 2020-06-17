@@ -23,6 +23,7 @@ function initWithApi(api) {
 
   window.withWeb3 = function () {
     if(window.ethereum) {
+      console.log("Attempting Ethereum access via window.ethereum");
       return window.ethereum.enable()
         .then(()=> {
           window.web3 = new Web3(ethereum);
@@ -33,6 +34,7 @@ function initWithApi(api) {
           throw error;
         })
     } else if(window.web3) {
+      console.log("Attempting Ethereum access via window.web3");
       return Promise.resolve(window.web3);
     } else {
       console.log("Non-Ethereum browser detected. You should consider trying Metamask!");
