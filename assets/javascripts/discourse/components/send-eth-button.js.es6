@@ -9,7 +9,8 @@ export default Ember.Component.extend({
     // return ( !canDoTransaction || (typeof window.web3 == "undefined") || !window.web3.eth.defaultAccount );
     // Don't check for a defaultAccount, MetaMask connection may not have been accepted yet
     // Check for window.ethereum, since window.web3 is being depricated
-    return ( !canDoTransaction || ((typeof window.ethereum == "undefined") && (typeof window.web3 == "undefined")) );
+    // return ( !canDoTransaction || ((typeof window.ethereum == "undefined") && (typeof window.web3 == "undefined")) );
+    return ( (typeof window.ethereum == "undefined") && (typeof window.web3 == "undefined") );
   },
 
   actions: {
