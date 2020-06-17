@@ -41,6 +41,8 @@ function initWithApi(api) {
       return Promise.reject("No web3 detected");
     }
   }
+
+  window.withWeb3();
 }
 
 export default {
