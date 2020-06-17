@@ -6,7 +6,10 @@ export default Ember.Component.extend({
 
   @computed("model.can_do_eth_transaction")
   disabled(canDoTransaction) {
-    return ( !canDoTransaction || (typeof window.web3 == "undefined") || !window.web3.eth.defaultAccount );
+    // return ( !canDoTransaction || (typeof window.web3 == "undefined") || !window.web3.eth.defaultAccount );
+    // Don't check for a defaultAccount, MetaMask connection may not have been accepted yet
+    // Check for window.ethereum, since window.web3 is being depricated
+    return ( !canDoTransaction || ((typeof window.ethereum == "undefined") && (typeof window.web3 == "undefined")) );
   },
 
   actions: {
