@@ -1,0 +1,18 @@
+# travis
+os: linux
+dist: xenial
+
+language: node_js
+node_js:
+- '10'
+- '12'
+
+git:
+  quiet: true
+#cache: npm
+
+install: npm install && npm install --package-lock-only
+
+scripts: export $TRAVIS_BUILD_ID $TRAVIS_COMMIT
+
+
