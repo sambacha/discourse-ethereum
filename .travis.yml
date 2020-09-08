@@ -1,14 +1,14 @@
-# travis
+# travis-ci 
+
 os: linux
 dist: xenial
 
-language: node_js
-node_js:
-- '10'
-- '12'
+language: ruby
 
-git:
-  quiet: true
-#cache: npm
+rvm:
+- 2.0.0
+- 1.9.3
+- jruby-19mode
+- rbx-19mode
 
-install: npm install
+script: echo "$!"
