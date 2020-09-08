@@ -4,6 +4,8 @@ import { withPluginApi } from "discourse/lib/plugin-api";
 
 function initWithApi(api) {
 
+<<<<<<< HEAD
+=======
   // PreferencesAccount.reopen({
 
     // saveAttrNames: ["name", "title", "custom_fields"],
@@ -22,6 +24,7 @@ function initWithApi(api) {
   //
   // });
 
+>>>>>>> master
   window.withWeb3 = function () {
     if(window.ethereum) {
       console.log("Attempting Ethereum access via window.ethereum");
