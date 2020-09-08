@@ -1,0 +1,45 @@
+{{#if siteSettings.discourse_ethereum_enabled}}
+  {{#if model.postStream.loaded}}
+    {{#if model.postStream.firstPostPresent}}
+
+      {{#if (eq model.category.nameLower "experiments/votes")}}
+        <div class="voting title-voting">
+          {{send-eth-button label="discourse_ethereum.submit_new_vote" model=model close=close action="submitNewVoteProposal"}}
+        </div>
+        <div class="voting title-voting">
+            {{send-eth-button label="discourse_ethereum.vote_no" model=model close=close action="voteNo"}}
+        </div>
+        <div class="voting title-voting">
+            {{send-eth-button label="discourse_ethereum.vote_yes" model=model close=close action="voteYes"}}
+        </div>
+      {{/if}}
+
+      {{#if (eq model.category.nameLower "token requests")}}
+        <div class="voting title-voting">
+          {{send-eth-button label="discourse_ethereum.submit_token_request" model=model close=close action="submitNewTokenRequestProposal"}}
+        </div>
+        <div class="voting title-voting">
+          {{send-eth-button label="discourse_ethereum.vote_no" model=model close=close action="voteNo"}}
+        </div>
+        <div class="voting title-voting">
+            {{send-eth-button label="discourse_ethereum.vote_yes" model=model close=close action="voteYes"}}
+        </div>
+      {{/if}}
+
+    {{/if}}
+  {{/if}}
+{{/if}}
+
+
+
+{{!--   {{#if model.postStream.firstPostPresent}} --}}
+{{!--     <div class="voting title-voting"> --}}
+{{!--       {{mount-widget widget="vote-box" args=model --}}
+{{!--         showLogin=(route-action "showLogin") --}}
+{{!--       }} --}}
+{{!--     </div> --}}
+{{!--     {{#if siteSettings.discourse_ethereum_enabled}} --}}
+{{!--       {{send-eth-button model=model}} --}}
+{{!--     {{/if}} --}}
+{{!--   {{/if}} --}}
+{{!-- {{/if}} --}}

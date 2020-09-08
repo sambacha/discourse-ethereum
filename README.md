@@ -1,26 +1,15 @@
-# discourse-ethereum
+# discourse-aragon
+
+## Installation  
+- **Production (Docker Container):** https://meta.discourse.org/t/install-plugins-in-discourse/19157  
+- **Development:** Clone this repo into `discourse/plugins`
+- Run [Node Backend](https://github.com/ResearchCollective/DIDCredentialNode) at `SERVER_URL`  
+- Set `SERVER_URL` in `assets/javascripts/discourse/components/send-eth-button.js.es6`
+- Make sure discourse-aragon is enabled in Discourse->Admin->Plugins Page
+
 
 ## Requirements
 
-[MetaMask](https://metamask.io/) installed on your browser.
-
-## Screenshot
-### 'Send ETH' Button
-
-![](screenshot/send-eth-user-card.png)
-![](screenshot/send-eth-user-profile.png)
-
-### 'Send ETH' Modal
-
-![](screenshot/send-eth-modal-1.png)
-![](screenshot/send-eth-modal-2.png)
-![](screenshot/send-eth-modal-3.png)
-
-### PM
-PM containing the transaction details sent by `system` to both user:
-
-#### Transfer ETH
-![pm](screenshot/pm-tx-details-eth.png)
-
-#### Transfer ERC20 Token
-![pm](screenshot/pm-tx-details-erc20.png)
+[MetaMask](https://metamask.io/) installed on your browser.    
+[Aragon DAO](https://rinkeby.aragon.org/#/)  
+[Node Backend](https://github.com/ResearchCollective/DIDCredentialNode)

@@ -1,26 +1,30 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
-import PreferencesAccount from "discourse/controllers/preferences/account";
+// import PreferencesAccount from "discourse/controllers/preferences/account";
+
 
 function initWithApi(api) {
 
-  PreferencesAccount.reopen({
+<<<<<<< HEAD
+=======
+  // PreferencesAccount.reopen({
 
-    saveAttrNames: ["name", "title", "custom_fields"],
+    // saveAttrNames: ["name", "title", "custom_fields"],
 
-    setEthAddressFor(obj) {
-      obj.set("ethereum_address", this.get("model.custom_fields.ethereum_address"));
-    },
+    // setEthAddressFor(obj) {
+    //   obj.set("ethereum_address", this.get("model.custom_fields.ethereum_address"));
+    // },
 
-    _updateEthereumAddress: function() {
-      if (!this.siteSettings.discourse_ethereum_enabled) return;
+  //   _updateEthereumAddress: function() {
+  //     if (!this.siteSettings.discourse_ethereum_enabled) return;
+  //
+  //     if (this.get("saved")) {
+  //       this.setEthAddressFor(this.get("model"));
+  //     }
+  //   }.observes("saved")
+  //
+  // });
 
-      if (this.get("saved")) {
-        this.setEthAddressFor(this.get("model"));
-      }
-    }.observes("saved")
-
-  });
-
+>>>>>>> master
   window.withWeb3 = function () {
     if(window.ethereum) {
       console.log("Attempting Ethereum access via window.ethereum");
@@ -46,6 +50,6 @@ function initWithApi(api) {
 }
 
 export default {
-  name: "extend-for-discourse-ethereum",
+  name: "extend-for-discourse-aragon",
   initialize() { withPluginApi("0.1", initWithApi); }
 };

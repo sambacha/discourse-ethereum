@@ -55,8 +55,10 @@ export default Ember.Controller.extend(ModalFunctionality, {
       isSuccess: false,
       transactionID: null,
       senderAddress: web3.eth.defaultAccount,
-      symbol: "ETH"
+      symbol: "ETH",
     });
+
+    console.log("modal server error:",this.get("serverError"))
 
     const symbols = ["ETH"];
 
@@ -80,8 +82,18 @@ export default Ember.Controller.extend(ModalFunctionality, {
     this[`setup${ this.get("symbol") == "ETH" ? "ETH" : "ERC20" }`]();
   },
 
+
+
   // computed properties
-  @computed("_balance")
+  @computed("error")
+    showError(error){
+    console.log("modal error:",this.get("error"))
+    console.log("show modal error:",error);
+    return error;
+  },
+
+
+    @computed("_balance")
   balance(balance) {
     if (!balance) return;
 
@@ -108,10 +120,37 @@ export default Ember.Controller.extend(ModalFunctionality, {
   // instance functions
   updateModal(opts) {
     opts = opts || {}
-
+    console.log("modal error:",this.get("error"))
     opts.title = "discourse_ethereum.send_ethereum"
 
     this.appEvents.trigger("modal:body-shown", opts);
+  },
+
+  vote(){
+    this.set("isLoading", true);
+
+    this.updateModal({ dismissable: false });
+    console.log("getting vote transaction!")
+    const aragonConnectOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(
+        {
+          vote:"yes",
+          userAddress:this.get("senderAddress"),
+        })
+    };
+    fetch("http://localhost:3001/getVoteTransaction", aragonConnectOptions)
+      .then(result=>result.json()).
+    then(data=> {
+        console.log("JSON:", data);
+        const txn = data["transactions"][0];
+        const args = {from: txn.from, to:txn.to,value:"0x00", data:txn.data }
+        web3.eth.sendTransaction(args, (e, txID) => this.afterProcess(e, txID));
+      }
+    )
   },
 
   process() {
@@ -211,13 +250,14 @@ export default Ember.Controller.extend(ModalFunctionality, {
     this.set("isLoading", false);
     this.updateModal();
   },
-  
-  actions: {
-    send() {
-      if (this.get("isDisabled")) return;
 
+  actions: {
+    dismiss() {
+      // if (this.get("isDisabled")) return;
+      console.log("modal error:",this.get("error"))
       this.clearFlash();
-      this.process();
+      // this.process();
+      // this.vote();
     }
   }
 

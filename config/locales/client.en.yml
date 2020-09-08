@@ -2,9 +2,18 @@ en:
   js:
     discourse_ethereum:
       ethereum_address: "Ethereum address"
+<<<<<<< HEAD
       send_ethereum: "Send ETH"
       send_eth_button: "Send ETH"
       send: "Send"
+=======
+      vote_no: "Vote No on Proposal"
+      vote_yes: "Vote Yes on Proposal"
+      submit_token_request: "Propose A Request For DAO Tokens"
+      submit_new_vote: "Propose This Topic As A New DAO Vote"
+      send_eth_button: "Vote on Proposal"
+      send: "Vote"
+>>>>>>> master
       enter_amount: "Enter the amount"
       balance: "Balance:"
       processing: "Processing transaction..."
