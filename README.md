@@ -1,4 +1,6 @@
-# discourse-aragon
+# discourse-ethereum && discourse-aragon
+
+This references two different repos
 
 ## Installation  
 - **Production (Docker Container):** https://meta.discourse.org/t/install-plugins-in-discourse/19157  
