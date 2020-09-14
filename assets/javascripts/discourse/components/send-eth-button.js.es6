@@ -93,7 +93,7 @@ export default Ember.Component.extend({
 
 
   actions: {
-<<<<<<< HEAD
+
     showSendEthModal() {
       if (this.get("disabled")) return;
       window.withWeb3().then( ()=> {
@@ -103,7 +103,7 @@ export default Ember.Component.extend({
         if (this.get("close")) this.close();
       });
     }
-=======
+
 
     submitNewVoteProposal(){
       submitProposal("submitNewAragonVote", this.get("model"));
@@ -135,6 +135,6 @@ export default Ember.Component.extend({
     //     if (this.get("close")) this.close();
     //   });
     // }
->>>>>>> master
+
   }
 });
