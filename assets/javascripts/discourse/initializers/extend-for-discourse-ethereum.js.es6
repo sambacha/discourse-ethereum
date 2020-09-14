@@ -1,11 +1,12 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
+import '@metamask/legacy-web3';
+
 // import PreferencesAccount from "discourse/controllers/preferences/account";
 
 
 function initWithApi(api) {
 
-<<<<<<< HEAD
-=======
+
   // PreferencesAccount.reopen({
 
     // saveAttrNames: ["name", "title", "custom_fields"],
@@ -23,8 +24,7 @@ function initWithApi(api) {
   //   }.observes("saved")
   //
   // });
-
->>>>>>> master
+// TODO: Metamask upgrade: see https://docs.metamask.io/guide/provider-migration.html#replacing-window-web3
   window.withWeb3 = function () {
     if(window.ethereum) {
       console.log("Attempting Ethereum access via window.ethereum");
