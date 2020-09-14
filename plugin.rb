@@ -1,8 +1,7 @@
-<<<<<<< HEAD
+
 # name: discourse-ethereum
-=======
-# name: discourse-aragon
->>>>>>> master
+
+
 # version: 0.1.4
 # author: ProCourse Team
 # url: https://github.com/ResearchCollective/discourse-aragon
